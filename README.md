@@ -23,6 +23,16 @@ A feature-rich and interactive calendar grid application built with React and `d
   - Built with ShadCN UI components for consistent styling.
 
 ---
+## Screenshots
+
+### Home View
+![Home View](./calendar_pp_img.png)
+
+### Second
+![Navigation](./calendar_pp_img2.png)
+
+### third
+![Navigation](./calendar_pp_img3.png)
 
 ## Getting Started
 
