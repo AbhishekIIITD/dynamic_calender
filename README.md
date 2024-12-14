@@ -45,9 +45,12 @@ Follow these instructions to run the app locally.
 - [Node.js](https://nodejs.org) (version 16 or later recommended)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
+
 ### Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/calendar-grid-app.git
    cd calendar-grid-app
+   npm install
+   npm run dev
