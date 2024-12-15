@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEventContext } from "../context/EventContext";
-import { Card } from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { AlertCircle, Trash2, Edit2 } from "lucide-react";
 
 export default function EventList({ events }) {
