@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import CalendarGrid from "./Components/CalendarGrid";
 import EventList from "./Components/EventList";
 import Modal from "./Components/Modal";
-import { useEventContext } from "./context/EventContext";
+import { useEventContext } from "../context/EventContext";
 import { Button } from "@/components/ui/button"; 
 
 

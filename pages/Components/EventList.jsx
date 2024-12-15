@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useEventContext } from "../context/EventContext";
+import { useEventContext } from "../../context/EventContext";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Trash2, Edit2 } from "lucide-react";
 
-export default function EventList({ events }) {
+export default function EventList({ events = [] }) { // Default to an empty array if undefined
   const { deleteEvent, updateEvent } = useEventContext();
   const [editingEvent, setEditingEvent] = useState(null); // State for the event being edited
   const [editedEventDetails, setEditedEventDetails] = useState({
@@ -46,7 +46,7 @@ export default function EventList({ events }) {
     <div className="mt-6">
       <h3 className="text-xl font-bold mb-4 text-center">Events</h3>
 
-      {events.length === 0 ? (
+      {events && events.length === 0 ? ( // Check if events is empty
         <div className="flex flex-col items-center text-gray-600 p-4 border rounded-lg bg-gray-50">
           <AlertCircle className="text-gray-400 mb-2" size={32} />
           <p className="text-sm">No events scheduled for this day.</p>

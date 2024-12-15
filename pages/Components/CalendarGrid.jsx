@@ -14,9 +14,9 @@ import {
   isToday,
 } from "date-fns";
 import { Card } from "@/components/ui/card"; // shadcn Card component
-import { Button } from "@/components/ui/button"; 
+import { Button } from "@/components/ui/button";
 import { Download, Calendar } from "lucide-react";
-import { useEventContext } from "../context/EventContext";
+import { useEventContext } from "../../context/EventContext";
 import { cn } from "@/lib/utils"; // Conditional class utility
 import { ChevronLeft, ChevronRight, ArrowLeft, ArrowRight } from "lucide-react"; // Icons
 
@@ -44,7 +44,10 @@ export default function CalendarGrid({ selectedDay, setSelectedDay }) {
 
   const exportToJSON = () => {
     // Get the events for the current month
-    const eventsForMonth = getEventsOfMonth(currentMonth.getMonth(), currentMonth.getFullYear());
+    const eventsForMonth = getEventsOfMonth(
+      currentMonth.getMonth(),
+      currentMonth.getFullYear()
+    );
 
     // Convert events to JSON and trigger download
     const dataStr = JSON.stringify(eventsForMonth, null, 2);
@@ -108,25 +111,34 @@ export default function CalendarGrid({ selectedDay, setSelectedDay }) {
 
       {/* Calendar Grid */}
       <div className="grid grid-cols-7 gap-2">
-        {days.map((day, index) => (
-          <Card
-            key={day.toISOString()}
-            className={cn(
-              "p-4 text-center cursor-pointer transition-colors duration-150",
-              isSameMonth(day, currentMonth)
-                ? "bg-gray-50 hover:bg-gray-100"
-                : "bg-gray-200 text-gray-400",
-              isToday(day) && "border-2 border-blue-600 bg-blue-200",  // Make today stand out with blue border and background
-              format(day, "yyyy-MM-dd") ===
-                format(selectedDay, "yyyy-MM-dd") && "bg-blue-500 text-white hover:text-blue-500",
-              (index % 7 === 0) && "mr-4",  // Add margin to Sunday (index 0) and Saturday (index 6)
-              (index % 7 === 6) && "ml-4"
-            )}
-            onClick={() => setSelectedDay(day)}
-          >
-            {format(day, "d")}
-          </Card>
-        ))}
+        {days.map((day, index) => {
+          const isValidDate = !isNaN(day?.getTime()); // Validate date
+          if (!isValidDate) {
+            console.error("Invalid date:", day); // Debug invalid dates
+            return null;
+          }
+
+          return (
+            <Card
+              key={day.toISOString()}
+              className={cn(
+                "p-4 text-center cursor-pointer transition-colors duration-150",
+                isSameMonth(day, currentMonth)
+                  ? "bg-gray-50 hover:bg-gray-100"
+                  : "bg-gray-200 text-gray-400",
+                isToday(day) && "border-2 border-blue-600 bg-blue-200",
+                format(day, "yyyy-MM-dd") ===
+                  format(selectedDay || new Date(), "yyyy-MM-dd") &&
+                  "bg-blue-500 text-white hover:text-blue-500",
+                index % 7 === 0 && "mr-4",
+                index % 7 === 6 && "ml-4"
+              )}
+              onClick={() => setSelectedDay(day)}
+            >
+              {format(day, "d")}
+            </Card>
+          );
+        })}
       </div>
       <Button
         className="mt-4 bg-blue-600 text-white flex items-center gap-2"

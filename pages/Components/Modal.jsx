@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useEventContext } from "../context/EventContext";
+import { useEventContext } from "../../context/EventContext";
 import { Button } from "@/components/ui/button"; 
 import { Input } from "@/components/ui/input"; 
 import { Textarea } from "@/components/ui/textarea"; 
