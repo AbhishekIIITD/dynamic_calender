@@ -13,8 +13,8 @@ import {
   isSameMonth,
   isToday,
 } from "date-fns";
-import { Card } from "@/components/ui/card.jsx"; // shadcn Card component
-import { Button } from "@/components/ui/button.jsx"; 
+import { Card } from "@/components/ui/card"; // shadcn Card component
+import { Button } from "@/components/ui/button"; 
 import { Download, Calendar } from "lucide-react";
 import { useEventContext } from "../context/EventContext";
 import { cn } from "@/lib/utils"; // Conditional class utility

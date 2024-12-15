@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEventContext } from "../context/EventContext";
-import { Button } from "@/components/ui/button.jsx"; 
-import { Input } from "@/components/ui/input.jsx"; 
-import { Textarea } from "@/components/ui/textarea.jsx"; 
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog.jsx"; 
+import { Button } from "@/components/ui/button"; 
+import { Input } from "@/components/ui/input"; 
+import { Textarea } from "@/components/ui/textarea"; 
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"; 
 import { Calendar, Clock, Briefcase, Heart, CalendarPlus } from "lucide-react"; // Icons
 
 export default function Modal({ selectedDay }) {
