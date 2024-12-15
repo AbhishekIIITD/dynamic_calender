@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
-import CalendarGrid from "../Components/CalendarGrid";
-import EventList from "../Components/EventList";
-import Modal from "../Components/Modal";
+import CalendarGrid from "../components/CalendarGrid";
+import EventList from "../components/EventList";
+import Modal from "../components/Modal";
 import { useEventContext } from "../context/EventContext";
 import { Button } from "@/components/ui/button"; 
 
